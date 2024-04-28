@@ -4,7 +4,8 @@ import time
 import os
 
 def load_image(name):
-    path= os.path.join('C:\MARTYN\Cursos Varios\Phyton\JuegoSerpiente 2.0' , name)
+    current_dir = os.path.dirname(__file__)  # Obtener la ruta del directorio actual del script
+    path = os.path.join(current_dir, name)   # Construir la ruta completa a la imagen
     return pygame.image.load(path).convert()
 
 
@@ -176,7 +177,7 @@ def gameLoop():
     azarManzanaX3 = round(random.randrange(0, ancho - 20)/20.0)*20.0
     azarManzanaY3 = round(random.randrange(0, altura - 20)/20.0)*20.0
 
-    background= load_image('serpiente.jpg')
+    background = load_image('serpiente.jpg')
     background= pygame.transform.scale(background,(ancho,altura))
 
     pulsar_sonido= pygame.mixer.Sound("musicaFondo.ogg")
@@ -281,9 +282,6 @@ def gameLoop():
         
 intro_juego()
 gameLoop()
-
-
-
 
 
     
